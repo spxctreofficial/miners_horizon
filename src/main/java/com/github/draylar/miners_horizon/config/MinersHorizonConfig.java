@@ -6,6 +6,10 @@ import me.sargunvohra.mcmods.autoconfig1.annotation.Config;
 @Config(name = "minershorizon")
 public class MinersHorizonConfig implements ConfigData
 {
+    public int zone1Start = 100;
+    public int zone2Start = 50;
+    public int zone3Start = 25;
+
     public int worldMidHeight = 150;
     public double mountainHeight = 2.5;
 

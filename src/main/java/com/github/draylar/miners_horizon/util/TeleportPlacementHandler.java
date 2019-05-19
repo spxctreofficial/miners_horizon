@@ -1,4 +1,4 @@
-package com.github.draylar.miners_horizon.common.util;
+package com.github.draylar.miners_horizon.util;
 
 import com.github.draylar.miners_horizon.MinersHorizon;
 import com.github.draylar.miners_horizon.common.Blocks;

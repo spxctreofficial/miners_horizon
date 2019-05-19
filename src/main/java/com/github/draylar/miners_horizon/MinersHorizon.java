@@ -34,14 +34,11 @@ public class MinersHorizon implements ModInitializer
 	public static final Feature CUSTOM_ORE_FEATURE = Registry.register(Registry.FEATURE, getModIdentifier("ore"), new CustomOreFeature(OreFeatureConfig::deserialize));
 	public static Biome MINING_BIOME;
 
-
 	@Override
 	public void onInitialize()
 	{
 		Blocks.register();
-
 		AutoConfig.register(MinersHorizonConfig.class, GsonConfigSerializer::new);
-
 		MINING_BIOME = Registry.register(Registry.BIOME, getModIdentifier("mining_biome"), new MiningDimensionBiome());
 	}
 

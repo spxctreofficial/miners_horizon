@@ -3,10 +3,7 @@
   "package": "com.github.draylar.miners_horizon.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinPortalForcer",
-    "MixinUsePickaxe",
-    "StoneDepthMixin",
-    "StoneHueMixin"
+    "StoneDepthMixin"
   ],
   "injectors": {
     "defaultRequire": 1
