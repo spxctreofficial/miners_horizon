@@ -10,8 +10,8 @@ public class MinersHorizonConfig implements ConfigData
     public int zone2Start = 50;
     public int zone3Start = 25;
 
-    public int worldMidHeight = 150;
-    public double mountainHeight = 2.5;
+    public int worldMidHeight = 200;
+    public double mountainHeight = 2.4;
 
     public boolean enableMineshafts = true;
     public double mineshaftRarity = 0.008d;
@@ -20,58 +20,52 @@ public class MinersHorizonConfig implements ConfigData
             {
                     new OreConfig(
                             "minecraft:coal_ore",
-                            15,
-                            30,
+                            17,
+                            20,
+                            100,
                             0,
-                            10,
-                            256
+                            255
                     ),
                     new OreConfig(
                             "minecraft:iron_ore",
-                            15,
-                            35,
+                            9,
+                            20,
+                            100,
                             0,
-                            0,
-                            256
+                            255
                     ),
                     new OreConfig(
-                            "minecraft:lapis_ore",
-                            8,
-                            10,
+                            "minecraft:gold_ore",
+                            9,
+                            2,
+                            100,
                             0,
-                            0,
-                            75
-                    ),
-                    new OreConfig(
-                            "minecrat:gold_ore",
-                            8,
-                            10,
-                            0,
-                            0,
-                            50
+                            140
                     ),
                     new OreConfig(
                             "minecraft:redstone_ore",
                             8,
-                            10,
+                            8,
+                            100,
                             0,
+                            120
+                    ),
+                    new OreConfig(
+                            "minecraft:lapis_ore",
+                            8,
+                            2,
+                            100,
                             0,
-                            75
+                            120
                     ),
                     new OreConfig(
                             "minecraft:diamond_ore",
                             8,
-                            3,
+                            1,
+                            100,
                             0,
-                            0,
-                            35),
-                    new OreConfig(
-                            "minecraft:emerald_ore",
-                            8,
-                            2,
-                            0,
-                            0,
-                            35
+                            120
                     )
+
             };
 }
