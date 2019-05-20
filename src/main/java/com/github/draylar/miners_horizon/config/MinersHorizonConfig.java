@@ -7,8 +7,8 @@ import me.sargunvohra.mcmods.autoconfig1.annotation.Config;
 public class MinersHorizonConfig implements ConfigData
 {
     public int zone1Start = 100;
-    public int zone2Start = 50;
-    public int zone3Start = 25;
+    public int zone2Start = 60;
+    public int zone3Start = 30;
 
     public int worldMidHeight = 200;
     public double mountainHeight = 2.4;
@@ -18,20 +18,21 @@ public class MinersHorizonConfig implements ConfigData
 
     public OreConfig[] oreConfigList  = new OreConfig[]
             {
+                    // default layer
                     new OreConfig(
                             "minecraft:coal_ore",
                             17,
-                            20,
+                            30,
                             100,
-                            0,
+                            100,
                             255
                     ),
                     new OreConfig(
                             "minecraft:iron_ore",
                             9,
-                            20,
+                            30,
                             100,
-                            0,
+                            100,
                             255
                     ),
                     new OreConfig(
@@ -39,7 +40,7 @@ public class MinersHorizonConfig implements ConfigData
                             9,
                             2,
                             100,
-                            0,
+                            100,
                             140
                     ),
                     new OreConfig(
@@ -47,7 +48,7 @@ public class MinersHorizonConfig implements ConfigData
                             8,
                             8,
                             100,
-                            0,
+                            100,
                             120
                     ),
                     new OreConfig(
@@ -55,7 +56,7 @@ public class MinersHorizonConfig implements ConfigData
                             8,
                             2,
                             100,
-                            0,
+                            100,
                             120
                     ),
                     new OreConfig(
@@ -63,9 +64,159 @@ public class MinersHorizonConfig implements ConfigData
                             8,
                             1,
                             100,
-                            0,
+                            100,
                             120
-                    )
+                    ),
+                    new OreConfig(
+                            "minecraft:emerald_ore",
+                            8,
+                            1,
+                            100,
+                            100,
+                            120
+                    ),
 
+
+                    // zone 1
+                    new OreConfig(
+                            "minecraft:coal_ore",
+                            17,
+                            5,
+                            60,
+                            60,
+                            100
+                    ),
+                    new OreConfig(
+                            "minecraft:iron_ore",
+                            9,
+                            5,
+                            60,
+                            60,
+                            100
+                    ),
+                    new OreConfig(
+                            "minecraft:gold_ore",
+                            9,
+                            2,
+                            60,
+                            60,
+                            100
+                    ),
+                    new OreConfig(
+                            "minecraft:redstone_ore",
+                            8,
+                            4,
+                            60,
+                            60,
+                            100
+                    ),
+                    new OreConfig(
+                            "minecraft:lapis_ore",
+                            8,
+                            2,
+                            60,
+                            60,
+                            100
+                    ),
+                    new OreConfig(
+                            "minecraft:diamond_ore",
+                            8,
+                            2,
+                            60,
+                            60,
+                            100
+                    ),
+                    new OreConfig(
+                            "minecraft:emerald_ore",
+                            8,
+                            2,
+                            60,
+                            60,
+                            100
+                    ),
+
+                    // zone 2
+                    new OreConfig(
+                            "minecraft:gold_ore",
+                            9,
+                            4,
+                            30,
+                            30,
+                            60
+                    ),
+                    new OreConfig(
+                            "minecraft:redstone_ore",
+                            8,
+                            6,
+                            30,
+                            30,
+                            60
+                    ),
+                    new OreConfig(
+                            "minecraft:lapis_ore",
+                            8,
+                            4,
+                            30,
+                            30,
+                            60
+                    ),
+                    new OreConfig(
+                            "minecraft:diamond_ore",
+                            8,
+                            2,
+                            30,
+                            30,
+                            60
+                    ),
+                    new OreConfig(
+                            "minecraft:emerald_ore",
+                            8,
+                            2,
+                            30,
+                            30,
+                            60
+                    ),
+
+                    // zone 3
+                    new OreConfig(
+                            "minecraft:gold_ore",
+                            9,
+                            4,
+                            0,
+                            0,
+                            30
+                    ),
+                    new OreConfig(
+                            "minecraft:redstone_ore",
+                            8,
+                            6,
+                            0,
+                            0,
+                            30
+                    ),
+                    new OreConfig(
+                            "minecraft:lapis_ore",
+                            8,
+                            4,
+                            0,
+                            0,
+                            30
+                    ),
+                    new OreConfig(
+                            "minecraft:diamond_ore",
+                            8,
+                            4,
+                            0,
+                            0,
+                            30
+                    ),
+                    new OreConfig(
+                            "minecraft:emerald_ore",
+                            8,
+                            4,
+                            0,
+                            0,
+                            30
+                    ),
             };
 }
