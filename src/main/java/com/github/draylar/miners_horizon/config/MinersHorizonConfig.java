@@ -10,6 +10,15 @@ public class MinersHorizonConfig implements ConfigData
     public int zone2Start = 60;
     public int zone3Start = 30;
 
+    public int zone1HardnessModifier = 2;
+    public int zone2HardnessModifier = 5;
+    public int zone3HardnessModifier = 10;
+
+    public int zone1StoneDarkness = 40;
+    public int zone2StoneDarkness = 60;
+    public int zone3StoneDarkness = 80;
+
+
     public int worldMidHeight = 200;
     public double mountainHeight = 2.4;
 

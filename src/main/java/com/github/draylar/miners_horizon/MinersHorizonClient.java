@@ -16,15 +16,14 @@ public class MinersHorizonClient implements ClientModInitializer
     @Override
     public void onInitializeClient()
     {
+        MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
+
         for(Block newBlock : Registry.BLOCK)
         {
             if(newBlock.getTranslationKey().contains("ore") || newBlock.getTranslationKey().contains("stone"))
             {
-                // TODO: MOVE TO CLIENT
                 ColorProviderRegistryImpl.BLOCK.register((block, view, pos, layer) ->
                         {
-                            MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
-
                             World world = MinecraftClient.getInstance().world;
                             if (world != null)
                             {
@@ -38,37 +37,37 @@ public class MinersHorizonClient implements ClientModInitializer
                                     // bottom zone
                                     if (y < config.zone3Start)
                                     {
-                                        returnColor = Color.getHSBColor(0, 0, 40 / 100f);
+                                        returnColor = Color.getHSBColor(0, 0, config.zone1StoneDarkness / 100f);
                                     }
 
                                     // bottom zone smoothing
                                     else if (y < config.zone3Start + 5)
                                     {
                                         int difference = (config.zone3Start + 5) - y;
-                                        returnColor = Color.getHSBColor(0, 0, (40 + (20f / difference)) / 100f);
+                                        returnColor = Color.getHSBColor(0, 0, (config.zone1StoneDarkness + (20f / difference)) / 100f);
                                     }
 
                                     // middle zone
                                     else if (y < config.zone2Start)
                                     {
-                                        returnColor = Color.getHSBColor(0, 0, 60 / 100f);
+                                        returnColor = Color.getHSBColor(0, 0, config.zone2StoneDarkness / 100f);
                                     }
 
                                     // middle zone smoothing
                                     else if (y < config.zone2Start + 5)
                                     {
                                         int difference = (config.zone2Start + 5) - y;
-                                        returnColor = Color.getHSBColor(0, 0, (60 + (20f / difference)) / 100f);
+                                        returnColor = Color.getHSBColor(0, 0, (config.zone2StoneDarkness + (20f / difference)) / 100f);
                                     }
 
                                     // first zone
                                     else if (y < config.zone1Start)
                                     {
-                                        returnColor = Color.getHSBColor(0, 0, 80 / 100f);
+                                        returnColor = Color.getHSBColor(0, 0, config.zone3StoneDarkness / 100f);
                                     } else if (y < config.zone1Start + 5)
                                     {
                                         int difference = (config.zone1Start + 5) - y;
-                                        returnColor = Color.getHSBColor(0, 0, (80 + (20f / difference)) / 100f);
+                                        returnColor = Color.getHSBColor(0, 0, (config.zone3StoneDarkness + (20f / difference)) / 100f);
                                     }
 
                                     return returnColor.getRGB();
