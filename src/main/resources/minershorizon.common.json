@@ -2,10 +2,12 @@
   "required": true,
   "package": "com.github.draylar.miners_horizon.mixin",
   "compatibilityLevel": "JAVA_8",
+  "environment": "common",
   "mixins": [
     "MixinPortalForcer",
     "MixinUsePickaxe",
-    "StoneDepthMixin"
+    "StoneDepthMixin",
+    "AfterInitializeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -23,9 +23,7 @@
   },
 
   "mixins": [
-    "minershorizon.common.json"
-  ],
-  "client": [
+    "minershorizon.common.json",
     "minershorizon.client.json"
   ],
 

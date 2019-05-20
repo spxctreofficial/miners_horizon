@@ -39,11 +39,15 @@ public class MinersHorizon implements ModInitializer
 	{
 		Blocks.register();
 		AutoConfig.register(MinersHorizonConfig.class, GsonConfigSerializer::new);
-		MINING_BIOME = Registry.register(Registry.BIOME, getModIdentifier("mining_biome"), new MiningDimensionBiome());
 	}
 
 	public static Identifier getModIdentifier(String path)
 	{
 		return new Identifier("miners_horizon", path);
+	}
+
+	public static void registerBiomes()
+	{
+		MINING_BIOME = Registry.register(Registry.BIOME, getModIdentifier("mining_biome"), new MiningDimensionBiome());
 	}
 }

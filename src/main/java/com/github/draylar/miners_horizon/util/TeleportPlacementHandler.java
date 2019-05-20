@@ -2,12 +2,17 @@ package com.github.draylar.miners_horizon.util;
 
 import com.github.draylar.miners_horizon.MinersHorizon;
 import com.github.draylar.miners_horizon.common.Blocks;
+import com.github.draylar.miners_horizon.config.MinersHorizonConfig;
+import me.sargunvohra.mcmods.autoconfig1.AutoConfig;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 
 import java.util.HashSet;
@@ -16,6 +21,8 @@ public class TeleportPlacementHandler
 {
     public static void enterDimension(Entity entity, ServerWorld previousWorld, ServerWorld newWorld) {
         if (newWorld.dimension.getType() == MinersHorizon.FABRIC_WORLD) {
+            Block block = Registry.BLOCK.get(new Identifier(AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig().portalBlockId));
+            if(block == net.minecraft.block.Blocks.AIR) block = net.minecraft.block.Blocks.CHISELED_STONE_BRICKS;
 
             // find closest portal block in a 4 chunk radius
             for (int x = -16 * 4; x < 16 * 4; x++)
@@ -57,19 +64,19 @@ public class TeleportPlacementHandler
 
             BlockPos pos = new BlockPos(spawnPos.getX(), spawnPos.getY(), spawnPos.getZ());
 
-            newWorld.setBlockState(pos, net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
-            newWorld.setBlockState(pos.east(), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
+            newWorld.setBlockState(pos, block.getDefaultState());
+            newWorld.setBlockState(pos.east(), block.getDefaultState());
 
-            newWorld.setBlockState(pos.down().east(2).up(2), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
-            newWorld.setBlockState(pos.down().east(2).up(3), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
-            newWorld.setBlockState(pos.down().east(2).up(4), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
+            newWorld.setBlockState(pos.down().east(2).up(2), block.getDefaultState());
+            newWorld.setBlockState(pos.down().east(2).up(3), block.getDefaultState());
+            newWorld.setBlockState(pos.down().east(2).up(4), block.getDefaultState());
 
-            newWorld.setBlockState(pos.down().west().up(2), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
-            newWorld.setBlockState(pos.down().west().up(3), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
-            newWorld.setBlockState(pos.down().west().up(4), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
+            newWorld.setBlockState(pos.down().west().up(2), block.getDefaultState());
+            newWorld.setBlockState(pos.down().west().up(3), block.getDefaultState());
+            newWorld.setBlockState(pos.down().west().up(4), block.getDefaultState());
 
-            newWorld.setBlockState(pos.up(4), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
-            newWorld.setBlockState(pos.up(4).east(), net.minecraft.block.Blocks.CHISELED_STONE_BRICKS.getDefaultState());
+            newWorld.setBlockState(pos.up(4), block.getDefaultState());
+            newWorld.setBlockState(pos.up(4).east(), block.getDefaultState());
 
             for (int x = 0; x < 2; x++)
             {
