@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Block.class)
 public class StoneDepthMixin
 {
-    MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
+
 
     @Inject(at = @At("RETURN"), method = "calcBlockBreakingDelta", cancellable = true)
     private void onBlockBreakDelta(BlockState blockState, PlayerEntity playerEntity, BlockView blockView, BlockPos blockPos, CallbackInfoReturnable<Float> info)
@@ -25,6 +25,8 @@ public class StoneDepthMixin
         {
             if (isUndergroundMaterial(blockState))
             {
+                MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
+
                 int multiplier;
                 int y = blockPos.getY();
 
@@ -48,7 +50,7 @@ public class StoneDepthMixin
                     multiplier = 1;
                 }
 
-                info.setReturnValue(info.getReturnValue() * multiplier);
+                info.setReturnValue(info.getReturnValue() / multiplier);
             }
         }
     }

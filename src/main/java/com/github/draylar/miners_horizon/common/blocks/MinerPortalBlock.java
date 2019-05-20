@@ -1,7 +1,9 @@
 package com.github.draylar.miners_horizon.common.blocks;
 
 import com.github.draylar.miners_horizon.MinersHorizon;
+import com.github.draylar.miners_horizon.config.MinersHorizonConfig;
 import com.google.common.cache.LoadingCache;
+import me.sargunvohra.mcmods.autoconfig1.AutoConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
@@ -12,8 +14,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
@@ -171,9 +175,15 @@ public class MinerPortalBlock extends PortalBlock
         BlockPos bottomLeft;
         int height;
         int width;
+        Block portalBlock;
 
         PortalSize(IWorld worldIn, BlockPos position, Direction.Axis axis)
         {
+
+            Block block = Registry.BLOCK.get(new Identifier(AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig().portalBlockId));
+            if(block == Blocks.AIR) block = Blocks.CHISELED_STONE_BRICKS;
+            this.portalBlock = block;
+
             this.world = worldIn;
             this.axis = axis;
 
@@ -219,14 +229,14 @@ public class MinerPortalBlock extends PortalBlock
             {
                 BlockPos blockpos = position.offset(axis, i);
 
-                if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != Blocks.CHISELED_STONE_BRICKS)
+                if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != portalBlock)
                 {
                     break;
                 }
             }
 
             Block block = this.world.getBlockState(position.offset(axis, i)).getBlock();
-            return block == Blocks.CHISELED_STONE_BRICKS ? i : 0;
+            return block == portalBlock ? i : 0;
         }
 
         int getHeight()
@@ -264,7 +274,7 @@ public class MinerPortalBlock extends PortalBlock
                     {
                         block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
-                        if (block != Blocks.CHISELED_STONE_BRICKS)
+                        if (block != portalBlock)
                         {
                             break label24;
                         }
@@ -273,7 +283,7 @@ public class MinerPortalBlock extends PortalBlock
                     {
                         block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
 
-                        if (block != Blocks.CHISELED_STONE_BRICKS)
+                        if (block != portalBlock)
                         {
                             break label24;
                         }
@@ -283,7 +293,7 @@ public class MinerPortalBlock extends PortalBlock
 
             for (int j = 0; j < this.width; ++j)
             {
-                if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != Blocks.CHISELED_STONE_BRICKS)
+                if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != portalBlock)
                 {
                     this.height = 0;
                     break;
