@@ -15,6 +15,8 @@ import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
+import java.util.List;
+
 public class MiningDimensionBiome extends Biome
 {
     public MiningDimensionBiome()
@@ -35,7 +37,6 @@ public class MiningDimensionBiome extends Biome
 
         DefaultBiomeFeatures.addDefaultStructures(this);
 
-
         this.addSpawn(EntityCategory.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ZOMBIE, 95, 4, 4));
@@ -45,6 +46,12 @@ public class MiningDimensionBiome extends Biome
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    @Override
+    public List<SpawnEntry> getEntitySpawnList(EntityCategory entityCategory_1)
+    {
+        return super.getEntitySpawnList(entityCategory_1);
     }
 
     @Override

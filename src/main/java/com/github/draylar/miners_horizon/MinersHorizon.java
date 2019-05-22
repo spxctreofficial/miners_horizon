@@ -44,7 +44,6 @@ public class MinersHorizon implements ModInitializer
 		Blocks.register();
 		AutoConfig.register(MinersHorizonConfig.class, GsonConfigSerializer::new);
 		MINING_BIOME = Registry.register(Registry.BIOME, getModIdentifier("mining_biome"), new MiningDimensionBiome());
-		registerOres();
 	}
 
 	public static Identifier getModIdentifier(String path)
@@ -52,12 +51,13 @@ public class MinersHorizon implements ModInitializer
 		return new Identifier("miners_horizon", path);
 	}
 
-	private void registerOres()
+	public static void addOres()
 	{
-
+		System.out.println("adding ores");
 		MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
 
-		for(OreConfig oreConfig : config.oreConfigList)
+		for (
+				OreConfig oreConfig : config.oreConfigList)
 		{
 			MINING_BIOME.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(
 					MinersHorizon.CUSTOM_ORE_FEATURE,

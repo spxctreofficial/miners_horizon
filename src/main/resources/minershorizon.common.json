@@ -6,7 +6,8 @@
   "mixins": [
     "MixinPortalForcer",
     "MixinUsePickaxe",
-    "StoneDepthMixin"
+    "StoneDepthMixin",
+    "LateServerInit"
   ],
   "injectors": {
     "defaultRequire": 1
