@@ -53,7 +53,6 @@ public class MinersHorizon implements ModInitializer
 
 	public static void addOres()
 	{
-		System.out.println("adding ores");
 		MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
 
 		for (
