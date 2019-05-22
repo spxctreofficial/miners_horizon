@@ -42,7 +42,7 @@ public class MinerPortalBlock extends PortalBlock
     }
 
     @Override
-    public boolean method_10352(IWorld worldIn, BlockPos pos)
+    public boolean createPortalAt(IWorld worldIn, BlockPos pos)
     {
         PortalSize portalSizeX = new PortalSize(worldIn, pos, Direction.Axis.X);
 

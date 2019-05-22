@@ -2,23 +2,17 @@ package com.github.draylar.miners_horizon.common.world.biome;
 
 import com.github.draylar.miners_horizon.MinersHorizon;
 import com.github.draylar.miners_horizon.config.MinersHorizonConfig;
-import com.github.draylar.miners_horizon.config.OreConfig;
 import me.sargunvohra.mcmods.autoconfig1.AutoConfig;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.ProbabilityConfig;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
 public class MiningDimensionBiome extends Biome
@@ -38,27 +32,6 @@ public class MiningDimensionBiome extends Biome
 
         if(AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig().enableMineshafts)
             this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig().mineshaftRarity, MineshaftFeature.Type.MESA));
-
-
-        MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
-
-        for(OreConfig oreConfig : config.oreConfigList)
-        {
-            this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(
-                    MinersHorizon.CUSTOM_ORE_FEATURE,
-                    new OreFeatureConfig(
-                            OreFeatureConfig.Target.NATURAL_STONE,
-                            Registry.BLOCK.get(new Identifier(oreConfig.block)).getDefaultState(),
-                            oreConfig.size),
-                    Decorator.COUNT_RANGE,
-                    new RangeDecoratorConfig(
-                            oreConfig.count,
-                            oreConfig.bottomOffset,
-                            oreConfig.topOffset,
-                            oreConfig.maxY
-                    )
-            ));
-        }
 
         DefaultBiomeFeatures.addDefaultStructures(this);
 

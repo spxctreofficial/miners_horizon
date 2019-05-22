@@ -2,11 +2,11 @@ package com.github.draylar.miners_horizon.common.world.dims;
 
 import com.github.draylar.miners_horizon.MinersHorizon;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.source.BiomeSourceType;
-import net.minecraft.world.chunk.ChunkPos;
 import net.minecraft.world.dimension.Dimension;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -26,7 +26,7 @@ public class MinersHorizonDimension extends Dimension
     }
 
     @Override
-    public BlockPos getSpawningBlockInChunk(ChunkPos var1, boolean var2)
+    public BlockPos getSpawningBlockInChunk(ChunkPos chunkPos, boolean b)
     {
         return null;
     }

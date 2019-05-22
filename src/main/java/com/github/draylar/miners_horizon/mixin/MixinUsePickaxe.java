@@ -29,7 +29,7 @@ public class MixinUsePickaxe
 
             if(usageContext.getWorld().getBlockState(usageContext.getBlockPos()).getBlock() == block)
             {
-                Blocks.MINER_PORTAL.method_10352(usageContext.getWorld(), usageContext.getBlockPos().up());
+                Blocks.MINER_PORTAL.createPortalAt(usageContext.getWorld(), usageContext.getBlockPos().up());
             }
         }
     }
