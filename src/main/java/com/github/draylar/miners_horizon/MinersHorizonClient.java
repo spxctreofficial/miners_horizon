@@ -20,7 +20,7 @@ public class MinersHorizonClient implements ClientModInitializer
 
         for(Block newBlock : Registry.BLOCK)
         {
-            if(newBlock.getTranslationKey().contains("ore") || newBlock.getTranslationKey().contains("stone"))
+            if((newBlock.getTranslationKey().contains("ore") || newBlock.getTranslationKey().contains("stone")) && !newBlock.getTranslationKey().contains("redstone_wire"))
             {
                 ColorProviderRegistryImpl.BLOCK.register((block, view, pos, layer) ->
                         {
