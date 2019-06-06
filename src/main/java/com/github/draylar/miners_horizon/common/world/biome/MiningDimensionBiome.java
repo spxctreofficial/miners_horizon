@@ -10,6 +10,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.ProbabilityConfig;
+import net.minecraft.world.gen.carver.Carver;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
@@ -30,10 +31,22 @@ public class MiningDimensionBiome extends Biome
         DefaultBiomeFeatures.addExtraDefaultFlowers(this);
         DefaultBiomeFeatures.addForestFlowers(this);
 
-        this.addCarver(GenerationStep.Carver.AIR, Biome.configureCarver(MinersHorizon.CAVE, new ProbabilityConfig(10)));
+        MinersHorizonConfig config = AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig();
 
-        if(AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig().enableMineshafts)
-            this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig().mineshaftRarity, MineshaftFeature.Type.MESA));
+        if(config.enableCaves)
+        {
+            this.addCarver(GenerationStep.Carver.AIR, Biome.configureCarver(MinersHorizon.CAVE, new ProbabilityConfig(config.caveRarity)));
+        }
+
+        if(config.enableCanyons)
+        {
+            this.addCarver(GenerationStep.Carver.AIR, Biome.configureCarver(Carver.CANYON, new ProbabilityConfig(config.canyonRarity)));
+        }
+
+        if(config.enableMineshafts)
+        {
+            this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(config.mineshaftRarity, MineshaftFeature.Type.MESA));
+        }
 
         DefaultBiomeFeatures.addDefaultStructures(this);
 

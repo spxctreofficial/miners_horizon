@@ -26,6 +26,12 @@ public class MinersHorizonConfig implements ConfigData
     public boolean enableMineshafts = true;
     public double mineshaftRarity = 0.008d;
 
+    public boolean enableCaves = true;
+    public float caveRarity = 10;
+
+    public boolean enableCanyons = true;
+    public float canyonRarity = 0.02F;
+
     public OreConfig[] oreConfigList  = new OreConfig[]
             {
                     // default layer
