@@ -8,7 +8,7 @@
     "MixinUsePickaxe",
     "StoneDepthMixin",
     "LateServerInit",
-    "NullPlayerWorldFix"
+    "RawIdFixer"
   ],
   "injectors": {
     "defaultRequire": 1
