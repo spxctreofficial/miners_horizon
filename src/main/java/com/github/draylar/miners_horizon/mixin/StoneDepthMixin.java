@@ -21,7 +21,7 @@ public class StoneDepthMixin
     @Inject(at = @At("RETURN"), method = "calcBlockBreakingDelta", cancellable = true)
     private void onBlockBreakDelta(BlockState blockState, PlayerEntity playerEntity, BlockView blockView, BlockPos blockPos, CallbackInfoReturnable<Float> info)
     {
-        if(playerEntity.dimension == MinersHorizon.FABRIC_WORLD)
+        if(playerEntity.dimension == MinersHorizon.MINERS_HORIZON)
         {
             if (isUndergroundMaterial(blockState))
             {

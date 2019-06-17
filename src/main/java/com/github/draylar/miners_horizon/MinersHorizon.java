@@ -31,7 +31,7 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 public class MinersHorizon implements ModInitializer
 {
-	public static final DimensionType FABRIC_WORLD = new FabricDimensionType(getModIdentifier("miners_horizon"), 5, (world_1, dimensionType_1) -> new MinersHorizonDimension(world_1, dimensionType_1));
+	public static final DimensionType MINERS_HORIZON = new FabricDimensionType(getModIdentifier("miners_horizon"), 5, (world_1, dimensionType_1) -> new MinersHorizonDimension(world_1, dimensionType_1));
 	public static final ChunkGeneratorType FABRIC_CHUNK_GENERATOR = new ChunkGeneratorTypeWorkaround().getChunkGeneratorType(ChunkGeneratorConfig::new);
 	public static final SurfaceBuilder<TernarySurfaceConfig> MINING_BIOME_SURFACE = Registry.register(Registry.SURFACE_BUILDER, getModIdentifier("mining_surface"), new MiningDimensionSurfaceBuilder());
 	public static final Carver<ProbabilityConfig> CAVE = Registry.register(Registry.CARVER, getModIdentifier("mining_carver"), new MiningCaveCarver(256));

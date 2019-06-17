@@ -79,7 +79,7 @@ public class MinersHorizonDimension extends Dimension
     @Override
     public DimensionType getType()
     {
-        return MinersHorizon.FABRIC_WORLD;
+        return MinersHorizon.MINERS_HORIZON;
     }
 
     @Override

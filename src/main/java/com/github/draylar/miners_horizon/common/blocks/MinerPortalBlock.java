@@ -36,8 +36,8 @@ public class MinerPortalBlock extends PortalBlock
     {
         if(!worldIn.isClient() && entityIn.isSneaking())
         {
-            if(entityIn.dimension == MinersHorizon.FABRIC_WORLD) entityIn.changeDimension(DimensionType.OVERWORLD);
-            else entityIn.changeDimension(MinersHorizon.FABRIC_WORLD);
+            if(entityIn.dimension == MinersHorizon.MINERS_HORIZON) entityIn.changeDimension(DimensionType.OVERWORLD);
+            else entityIn.changeDimension(MinersHorizon.MINERS_HORIZON);
         }
     }
 

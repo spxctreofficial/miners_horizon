@@ -4,7 +4,6 @@
   "compatibilityLevel": "JAVA_8",
   "environment": "common",
   "mixins": [
-    "MixinPortalForcer",
     "MixinUsePickaxe",
     "StoneDepthMixin",
     "LateServerInit",

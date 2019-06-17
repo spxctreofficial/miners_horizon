@@ -20,7 +20,7 @@ import java.util.HashSet;
 public class TeleportPlacementHandler
 {
     public static void enterDimension(Entity entity, ServerWorld previousWorld, ServerWorld newWorld) {
-        if (newWorld.dimension.getType() == MinersHorizon.FABRIC_WORLD) {
+        if (newWorld.dimension.getType() == MinersHorizon.MINERS_HORIZON) {
             Block block = Registry.BLOCK.get(new Identifier(AutoConfig.getConfigHolder(MinersHorizonConfig.class).getConfig().portalBlockId));
             if(block == net.minecraft.block.Blocks.AIR) block = net.minecraft.block.Blocks.CHISELED_STONE_BRICKS;
 

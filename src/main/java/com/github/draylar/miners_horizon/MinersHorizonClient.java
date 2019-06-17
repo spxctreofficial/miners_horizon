@@ -27,7 +27,7 @@ public class MinersHorizonClient implements ClientModInitializer
                             World world = MinecraftClient.getInstance().world;
                             if (world != null)
                             {
-                                if (world.getDimension().getType() == MinersHorizon.FABRIC_WORLD)
+                                if (world.getDimension().getType() == MinersHorizon.MINERS_HORIZON)
                                 {
                                     int y = pos.getY();
 
