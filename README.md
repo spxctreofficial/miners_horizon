@@ -1,18 +1,8 @@
-# Fabric Example Mod
+# Miner's Horizon
 
-Draylar's fork of the fabric-example-mod. Changes package structure to my usual one.
+Miner's Horizon: a mining dimension mod.
+https://www.curseforge.com/minecraft/mc-mods/miners-horizon
 
-## Setup
-
-1. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
-
-```
-./gradlew idea
-```
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+# License
+GPLv3. You are free to use, sell, or copy my code in any way you wish. 
+If you agree to this license, you also agree to license your project (using my code) as GPLv3 and keep it open source.
